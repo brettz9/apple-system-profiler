@@ -1,11 +1,20 @@
 {
   "name": "apple-system-profiler",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "wrapper around apple's system_profiler that parses the output",
   "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./index.js"
+    }
+  },
   "scripts": {
-    "eslint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc",
+    "build": "tsc -p tsconfig-prod.json",
+    "lint": "eslint .",
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -14,7 +23,7 @@
   "bugs": "https://github.com/kfatehi/apple-system-profiler/issues",
   "homepage": "https://github.com/kfatehi/apple-system-profiler",
   "engines": {
-    "node": ">=8.0.0"
+    "node": "^20.11.0 || >= 22.0.0"
   },
   "keywords": [],
   "author": "Keyvan Fatehi",
@@ -23,9 +32,12 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "plist": "^3.0.1"
+    "plist": "^3.1.0"
   },
   "devDependencies": {
-    "eslint": "^6.5.1"
+    "@types/node": "^24.9.2",
+    "@types/plist": "^3.0.5",
+    "eslint": "^9.39.0",
+    "eslint-config-ash-nazg": "^39.6.1"
   }
 }
